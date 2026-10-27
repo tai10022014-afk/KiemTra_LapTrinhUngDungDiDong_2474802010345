@@ -1,5 +1,6 @@
-package com.vanlang.kiemtra_laptrinhungdungdidong_2474802010345  // giữ nguyên package của bạn
+package com.vanlang.kiemtra_laptrinhungdungdidong_2474802010345
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
@@ -47,6 +48,11 @@ class LoginActivity : AppCompatActivity() {
                 else -> {
                     tvStatus.setTextColor(0xFF2E7D32.toInt())
                     tvStatus.text = "Xác thực thành công!"
+
+                    // Explicit Intent + truyền Email sang ProfileActivity
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    intent.putExtra("EXTRA_EMAIL", email)
+                    startActivity(intent)
                 }
             }
         }
